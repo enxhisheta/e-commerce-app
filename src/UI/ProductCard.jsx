@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-//import { useCart } from "../context/CartContext";
+import { useCart } from "../context/CartContext";
 
 const ProductCard = ({ product }) => {
-  //const { addToCart } = useCart();
+  const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
   const navigate = useNavigate();
 
@@ -12,9 +12,9 @@ const ProductCard = ({ product }) => {
     navigate(`/products/${product.id}`);
   };
 
-  //   const handleAddToCart = () => {
-  //     addToCart(product, quantity);
-  //   };
+  const handleAddToCart = () => {
+    addToCart(product, quantity);
+  };
 
   return (
     <div className="product-card">
@@ -28,7 +28,7 @@ const ProductCard = ({ product }) => {
         onChange={(e) => setQuantity(Number(e.target.value))}
       />
 
-      <button>Add to Cart</button>
+      <button onClick={handleAddToCart}>Add to Cart</button>
       <button onClick={handleViewDetails}>View Details</button>
     </div>
   );
