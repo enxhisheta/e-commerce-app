@@ -152,6 +152,11 @@ footer p {
   margin: 0;
 }
 
+body[data-theme="dark"] footer {
+  background-color: #131313;
+  color: #ddd;
+}
+
 .product-grid {
   display: grid;
   gap: 20px;
