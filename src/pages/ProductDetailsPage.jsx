@@ -1,25 +1,16 @@
-import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductDetails from "../UI/ProductDetails";
 import Layout from "../UI/Layout";
+import useProducts from "../hooks/useProducts";
 
 const ProductDetailsPage = () => {
   const { productId } = useParams();
-  const [product, setProduct] = useState(null);
+  const { products, loading, error } = useProducts();
 
-  useEffect(() => {
-    fetch("/products.json")
-      .then((response) => response.json())
-      .then((data) => {
-        const selectedProduct = data.find(
-          (item) => item.id === parseInt(productId, 10)
-        );
-        setProduct(selectedProduct);
-      })
-      .catch((error) => {
-        console.error("Error fetching product data:", error);
-      });
-  }, [productId]);
+  if (loading) return <p>Loading product details...</p>;
+  if (error) return <p>{error}</p>;
+
+  const product = products.find((item) => item.id === parseInt(productId, 10));
 
   if (!product) return <p>Product not found</p>;
 
