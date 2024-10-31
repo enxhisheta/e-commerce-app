@@ -1,6 +1,6 @@
 import AppRoutes from "./routes";
-import { ThemeProvider } from "./context/ThemeContext";
-import { CartProvider } from "./context/CartContext";
+import { ThemeProvider } from "./store/ThemeContext";
+import { CartProvider } from "./store/CartContext";
 import "./index.css";
 
 function App() {

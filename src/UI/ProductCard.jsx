@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../store/CartContext";
 
 const ProductCard = ({ product }) => {
   const { addToCart } = useCart();

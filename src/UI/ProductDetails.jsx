@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { useCart } from "../context/CartContext";
+import { useCart } from "../store/CartContext";
 
 const ProductDetails = ({ product }) => {
   const { addToCart } = useCart();
