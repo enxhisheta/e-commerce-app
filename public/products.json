@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "Wireless Bluetooth Headphones",
+    "imageSrc": "./src/assets/headphones.jpg",
+    "description": "High-quality wireless Bluetooth headphones with noise cancellation and 20 hours of battery life.",
+    "price": 299.99
+  },
+  {
+    "id": 2,
+    "name": "Wireless Bluetooth Headphones",
+    "imageSrc": "./src/assets/headphones.jpg",
+    "description": "High-quality wireless Bluetooth headphones with noise cancellation and 20 hours of battery life.",
+    "price": 299.99
+  },
+  {
+    "id": 3,
+    "name": "Wireless Bluetooth Headphones",
+    "imageSrc": "./src/assets/headphones.jpg",
+    "description": "High-quality wireless Bluetooth headphones with noise cancellation and 20 hours of battery life.",
+    "price": 299.99
+  },
+  {
+    "id": 4,
+    "name": "Wireless Bluetooth Headphones",
+    "imageSrc": "./src/assets/headphones.jpg",
+    "description": "High-quality wireless Bluetooth headphones with noise cancellation and 20 hours of battery life.",
+    "price": 299.99
+  },
+  {
+    "id": 5,
+    "name": "Wireless Bluetooth Headphones",
+    "imageSrc": "./src/assets/headphones.jpg",
+    "description": "High-quality wireless Bluetooth headphones with noise cancellation and 20 hours of battery life.",
+    "price": 299.99
+  },
+  {
+    "id": 6,
+    "name": "Wireless Bluetooth Headphones",
+    "imageSrc": "./src/assets/headphones.jpg",
+    "description": "High-quality wireless Bluetooth headphones with noise cancellation and 20 hours of battery life.",
+    "price": 299.99
+  },
+  {
+    "id": 7,
+    "name": "Wireless Bluetooth Headphones",
+    "imageSrc": "./src/assets/headphones.jpg",
+    "description": "High-quality wireless Bluetooth headphones with noise cancellation and 20 hours of battery life.",
+    "price": 299.99
+  },
+  {
+    "id": 8,
+    "name": "Wireless Bluetooth Headphones",
+    "imageSrc": "./src/assets/headphones.jpg",
+    "description": "High-quality wireless Bluetooth headphones with noise cancellation and 20 hours of battery life.",
+    "price": 299.99
+  }
+]

@@ -1,15 +1,20 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 import CartButton from "./CartButton";
 import logo from "../assets/shopLogo2.png";
 
-const Header = () => {
+const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [sticky, setSticky] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+
+  const handleLogoClick = () => {
+    navigate("/");
   };
 
   useEffect(() => {
@@ -29,10 +34,12 @@ const Header = () => {
   return (
     <header className={sticky ? "sticky" : ""}>
       <nav>
-        <div className="logo">
-          <Link to="/">
-            <img src={logo} alt="NGshop" />
-          </Link>
+        <div
+          className="logo"
+          onClick={handleLogoClick}
+          style={{ cursor: "pointer" }}
+        >
+          <img src={logo} alt="NGshop" />
         </div>
         <div
           id="hamburger"
@@ -56,4 +63,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Navbar;
