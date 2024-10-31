@@ -234,3 +234,21 @@ body[data-theme="dark"] .product-card p {
 .product-card button:hover {
   background-color: #535aff;
 }
+
+.product-details-page {
+  margin-top: 120px;
+  padding: 2rem;
+  min-height: calc(100vh - 100px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-details {
+  max-width: 800px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}

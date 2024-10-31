@@ -1,10 +1,16 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 //import { useCart } from "../context/CartContext";
 
 const ProductCard = ({ product }) => {
   //const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
+  const navigate = useNavigate();
+
+  const handleViewDetails = () => {
+    navigate(`/products/${product.id}`);
+  };
 
   //   const handleAddToCart = () => {
   //     addToCart(product, quantity);
@@ -21,7 +27,9 @@ const ProductCard = ({ product }) => {
         value={quantity}
         onChange={(e) => setQuantity(Number(e.target.value))}
       />
+
       <button>Add to Cart</button>
+      <button onClick={handleViewDetails}>View Details</button>
     </div>
   );
 };

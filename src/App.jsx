@@ -1,13 +1,16 @@
 import AppRoutes from "./routes";
 import { ThemeProvider } from "./context/ThemeContext";
+import { CartProvider } from "./context/CartContext";
 import "./index.css";
 
 function App() {
   return (
     <ThemeProvider>
-      <div className="App">
-        <AppRoutes />
-      </div>
+      <CartProvider>
+        <div className="App">
+          <AppRoutes />
+        </div>
+      </CartProvider>
     </ThemeProvider>
   );
 }
