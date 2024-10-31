@@ -20,7 +20,7 @@ a {
 }
 
 a:hover {
-  color: #535bf2;
+  color: #646cff;
 }
 
 body {
@@ -29,6 +29,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  flex-grow: 1;
 }
 
 h1 {
@@ -58,48 +59,127 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 3000;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s ease;
   align-items: center;
-  justify-content: center;
-  gap: 10px;
-}
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-
-  a:hover {
-    color: #747bff;
-  }
-
-  button {
-    background-color: #f9f9f9;
-  }
 }
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+header.sticky {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .logo {
-  height: 6em;
+  height: 4em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #646cff);
 }
 
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.logo img {
+  width: 200px;
+  height: auto;
+  display: block;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-menu li a {
+  color: rgba(255, 255, 255, 0.87);
+  text-decoration: none;
+  font-size: large;
+  transition: color 0.3s ease;
+}
+
+.nav-menu li a:hover {
+  color: #646cff;
+}
+
+#hamburger {
+  display: none;
+}
+
+#hamburger.open div {
+  background-color: #646cff;
+}
+
+#hamburger div {
+  width: 22px;
+  height: 2px;
+  background-color: #fff;
+  margin: 4px 0;
+  transition: 0.5s;
+}
+
+.nav-menu.active {
+  display: block;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 1rem 2rem;
+  border-radius: 0 0 0 10px;
+}
+
+.nav-menu.active li {
+  display: block;
+  padding: 1rem 0;
+}
+
+.nav-menu.active li a {
+  color: white;
+  font-size: 1.2rem;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  width: 100vw;
+  height: 50px;
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #ff4063;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
 }
 
 @keyframes logo-spin {
@@ -111,7 +191,30 @@ form {
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+  }
+
+  #hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  #hamburger.open .line:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 7.5px);
+  }
+
+  #hamburger.open .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  #hamburger.open .line:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
@@ -123,4 +226,7 @@ form {
 
 .read-the-docs {
   color: #888;
+}
+footer {
+  padding: 20px 5px;
 }
