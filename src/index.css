@@ -1,27 +1,21 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --line-height: 1.5;
+  --font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(70, 70, 70, 0.87);
-  background-color: #242424;
+  --light-color: rgba(70, 70, 70, 0.87);
+  --light-background: #f5f5f5;
+  --light-button-background: #1a1a1a;
+  --light-button-color: white;
+  --light-header-background: rgba(0, 0, 0, 0.5);
+  --light-header-sticky-background: rgba(0, 0, 0, 0.8);
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* General Styles */
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-a:hover {
-  color: #646cff;
+  --dark-color: rgba(255, 255, 255, 0.87);
+  --dark-background: #242424;
+  --dark-button-background: #646cff;
+  --dark-button-color: white;
+  --dark-header-background: rgba(0, 0, 0, 0.5);
+  --dark-header-sticky-background: rgba(0, 0, 0, 0.8);
 }
 
 body {
@@ -31,12 +25,21 @@ body {
   align-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background-color: #f5f5f5;
+  background-color: var(--light-background);
+  color: var(--light-color);
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  font-weight: var(--font-weight);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+body[data-theme="light"] {
+  background-color: var(--light-background);
+  color: var(--light-color);
+}
+
+body[data-theme="dark"] {
+  background-color: var(--dark-background);
+  color: var(--dark-color);
 }
 
 button {
@@ -46,11 +49,16 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--light-button-background);
+  color: var(--light-button-color);
   cursor: pointer;
   transition: border-color 0.25s, background-color 0.25s;
   margin: 10px;
-  color: white;
+}
+
+body[data-theme="dark"] button {
+  background-color: var(--dark-button-background);
+  color: var(--dark-button-color);
 }
 
 button:hover {
@@ -69,13 +77,21 @@ header {
   height: 120px;
   top: 0;
   z-index: 3000;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--light-header-background);
   transition: background-color 0.3s ease;
   align-items: center;
 }
 
+header[data-theme="dark"] {
+  background-color: var(--dark-header-background);
+}
+
 header.sticky {
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--light-header-sticky-background);
+}
+
+header[data-theme="dark"].sticky {
+  background-color: var(--dark-header-sticky-background);
 }
 
 nav {
@@ -105,10 +121,14 @@ nav {
 }
 
 .nav-menu li a {
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--light-color);
   text-decoration: none;
   font-size: large;
   transition: color 0.3s ease;
+}
+
+body[data-theme="dark"] .nav-menu li a {
+  color: var(--dark-color);
 }
 
 .nav-menu li a:hover {
@@ -154,6 +174,16 @@ footer p {
   padding: 1rem;
 }
 
+body[data-theme="dark"] .product-card {
+  background-color: #333;
+  color: #ddd;
+}
+body[data-theme="dark"] .product-card h3 {
+  color: #ddd;
+}
+body[data-theme="dark"] .product-card p {
+  color: #ddd;
+}
 .product-card:hover {
   transform: translateY(-5px);
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);

@@ -1,20 +1,13 @@
-// ThemeToggle.jsx
-import { useState, useEffect } from "react";
+import { useContext } from "react";
 import { FiSun, FiMoon } from "react-icons/fi";
+import { ThemeContext } from "../context/ThemeContext";
+
 const ThemeToggle = () => {
-  const [theme, setTheme] = useState("light");
-
-  const toggleTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
-
-  useEffect(() => {
-    document.body.className = theme;
-  }, [theme]);
+  const { darkTheme, toggleTheme } = useContext(ThemeContext);
 
   return (
     <button onClick={toggleTheme}>
-      {theme === "light" ? <FiMoon size={24} /> : <FiSun size={24} />}
+      {darkTheme ? <FiSun size={24} /> : <FiMoon size={24} />}
     </button>
   );
 };
