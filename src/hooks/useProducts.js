@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const useProducts = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState(null); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -9,13 +9,15 @@ const useProducts = () => {
     const fetchProducts = async () => {
       try {
         const response = await fetch("/products.json");
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
         const data = await response.json();
+
+        if (!Array.isArray(data) || data.length === 0) {
+          throw new Error("No products found in the file.");
+        }
+
         setProducts(data);
       } catch (error) {
-        console.error("Error loading products:", error);
+        console.error("Error loading products:", error.message);
         setError("Failed to load products. Please try again later.");
       } finally {
         setLoading(false);

@@ -10,8 +10,7 @@ const ProductsPage = () => {
       <div className="product-grid">
         {loading && <p>Loading products...</p>}
         {error && <p>{error}</p>}
-        {!loading &&
-          !error &&
+        {products &&
           products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
